@@ -67,7 +67,6 @@ bool A_star(const vector<vector<float>>& grid, vector<Coordinates>& path, const 
     BinaryHeap<Node*, Astar_Node_Compare> open_list;
     std::unordered_map<Coordinates, Node*, Coordinate_Hash> closed_list;
     std::unordered_map<Coordinates, Node*, Coordinate_Hash> known_nodes;
-    std::unordered_map<Node*, unsigned int> node_pos;
 
     // preallocate children
     vector<Coordinates> children_list;
@@ -83,8 +82,10 @@ bool A_star(const vector<vector<float>>& grid, vector<Coordinates>& path, const 
 
     bool searching = true;
     bool found = false;
+    int node_expansions = 0;
     while(searching)
     {
+        node_expansions++;
         curr_node = open_list.getTop();
 
         // cout << "(" << curr_node->coordinates.X << ", " << curr_node->coordinates.Y << ")\n";
@@ -173,6 +174,7 @@ bool A_star(const vector<vector<float>>& grid, vector<Coordinates>& path, const 
             searching = false;
         }
     }
+    cout << "node expansions: " << node_expansions << endl;
 
     // deallocates every node
     for(auto node=known_nodes.begin(); node!=known_nodes.end(); node++)

@@ -93,8 +93,10 @@ bool dijkstra(const vector<vector<float>>& grid, vector<Coordinates>& path, cons
     // make sure unordered_map hash is working
     next_search.push( next );
 
+    int node_expansions = 0;
     while(searching)
     {
+        node_expansions++;
         //get next node to search 
         curr_node = next_search.top();
         visited[curr_node->coordinates] = curr_node;
@@ -145,6 +147,7 @@ bool dijkstra(const vector<vector<float>>& grid, vector<Coordinates>& path, cons
             searching = false;
         }
     }
+    std::cout << "node expansions: " << node_expansions << std::endl;
 
     if(found)
     {
