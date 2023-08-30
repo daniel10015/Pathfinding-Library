@@ -39,7 +39,7 @@ of the BinaryHeap for different algorithms are also listed there
 - Optimized openlist(node) lookup from O(n) to O(1) using custom a min heap (located in ~/lib/). 
 - Used maps for `known_nodes` and `closed_list` since we need to keep track of nodes for a given coordinate
 ### Coordinate hash function
-- Uses function  [here](https://en.wikipedia.org/wiki/Pairing_function#:~:text=In%20mathematics%2C%20a%20pairing%20function,same%20cardinality%20as%20natural%20numbers.)
+- Uses pair function [here](https://en.wikipedia.org/wiki/Pairing_function#:~:text=In%20mathematics%2C%20a%20pairing%20function,same%20cardinality%20as%20natural%20numbers.)
 - The goal is for a unique pair of numbers (*a*, *b*) to result in as close to a 1-1 function as possible
   - i.e. (1,2) should have a different output than (2,1)
 - This will decrease collisions and which increases efficiency
