@@ -1,0 +1,5 @@
+valgrind_out
+notes.txt
+*.o
+.vscode/
+test/
